@@ -52,19 +52,15 @@ grid.addEventListener("click", (e) => {
 
 function formatDisplay(numberString) {
     const unformattedString = numberString.replace(/,/g, '');
-    
     const parts = unformattedString.split('.');
     const integerPart = parts[0];
     const decimalPart = parts[1];
-    
     if (integerPart === '' || integerPart === '-') {
         return numberString;
     }
-    
     const formattedInteger = new Intl.NumberFormat('en-US').format(
         parseFloat(integerPart)
     );
-    
     if (decimalPart !== undefined) {
         return `${formattedInteger}.${decimalPart}`;
     } else if (numberString.endsWith('.')) {
@@ -86,15 +82,15 @@ function roundResult(number) {
 }
 
 function updateDisplay(value) {
-        displayResult.innerText = value;
-        const defaultFontSize = 3; 
-        displayResult.style.fontSize = `${defaultFontSize}rem`;
-        const maxWidth = displayContainer.clientWidth - 20; 
-        let currentFontSize = defaultFontSize;
-        while (displayResult.scrollWidth > maxWidth && currentFontSize > 1) {
-                currentFontSize -= 0.1;
-                displayResult.style.fontSize = `${currentFontSize}rem`;
-        }
+    displayResult.innerText = value;
+    const defaultFontSize = 3; 
+    displayResult.style.fontSize = `${defaultFontSize}rem`;
+    const maxWidth = displayContainer.clientWidth - 20; 
+    let currentFontSize = defaultFontSize;
+    while (displayResult.scrollWidth > maxWidth && currentFontSize > 1) {
+            currentFontSize -= 0.1;
+            displayResult.style.fontSize = `${currentFontSize}rem`;
+    }
 }
 
 function appendNumber(number) {
@@ -102,7 +98,8 @@ function appendNumber(number) {
     if (displayResult.innerText === "0" || shouldResetScreen) {
         currentText = number;
         shouldResetScreen = false;
-    } else {
+    } 
+    else {
         currentText = unformatDisplay(displayResult.innerText) + number;
     }
     updateDisplay(formatDisplay(currentText));
@@ -277,8 +274,8 @@ function addEntryToHistory(expression, result) {
 
     let div = document.createElement("div");
     div.innerHTML = `
-                                <p class="historyMath">${expression}</p>
-                                <p class="historyResult">${result}</p>
+                        <p class="historyMath">${expression}</p>
+                        <p class="historyResult">${result}</p>
                         `;
     listExpression.appendChild(div);
 
