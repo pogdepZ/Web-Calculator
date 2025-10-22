@@ -4,6 +4,29 @@ const displayResult = document.querySelector(".result");
 const displayContainer = document.querySelector(".display");
 const listExpression = document.querySelector(".listExpression");
 const clearHistoryBtn = document.querySelector(".icon i");
+const historyIcon = document.getElementById("historyIcon");
+
+document.addEventListener('DOMContentLoaded', () => {
+    const historyIcon = document.getElementById('historyIcon');
+    const historyPanel = document.querySelector('.inner2');
+    const historyWrap = document.querySelector('.inner2 .wrap');
+
+    const closeIcon = document.createElement('i');
+    closeIcon.className = 'fa-solid fa-times'; 
+    closeIcon.id = 'closeHistoryIcon'; 
+    closeIcon.style.display = 'none'; 
+    historyWrap.prepend(closeIcon);
+    historyIcon.addEventListener('click', () => {
+        historyPanel.classList.add('showHistory'); 
+    });
+
+    closeIcon.addEventListener('click', () => {
+        historyPanel.classList.remove('showHistory'); 
+    });
+});
+historyIcon.addEventListener("click", () => {
+    document.querySelector(".inner2").classList.toggle("showHistory");
+});
 
 clearHistoryBtn.addEventListener("click", () => {
     listExpression.innerHTML = `<span class="historyClean">There's no history yet</span>`;
