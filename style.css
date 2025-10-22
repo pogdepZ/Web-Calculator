@@ -6,7 +6,7 @@
 
 body {
     background-color: #e2f6ff;
-    overflow: hidden;
+    
     font-family: Arial, sans-serif;
 }
 
@@ -196,6 +196,9 @@ body {
         flex-direction: column;
         flex: 1;
     }
+    .container .inner2 {
+       overflow-y: auto;
+    }
     
     .display {
         padding: 15px 10px;
@@ -244,24 +247,36 @@ body {
     .inner2.showHistory {
         display: flex;
         flex-direction: column;
+        height: 100%;
     }
     
     .inner2.showHistory .listExpression {
         flex: 1;
         max-height: none;
+        overflow-y: scroll;
+        margin-bottom: 0;
     }
     
     #closeHistoryIcon {
         display: block !important;
         cursor: pointer;
-        margin-left: auto;
+        margin-left: auto;  
         font-size: 20px;
     }
-    
+    .icon {
+        position: static; 
+        bottom: auto;
+        right: auto;
+        padding: 10px 15px;
+        text-align: right;
+        background-color: #202020; 
+        flex-shrink: 0; 
+    }
     .wrap .fa-bars,
     .wrap .fa-pager {
         display: none;
     }
+    
 }
 
 @media screen and (max-width: 480px) {
