@@ -200,6 +200,7 @@ body {
         flex: 1;
     }
     .container .inner2 {
+        display: none;
        overflow-y: auto;
     }
     
